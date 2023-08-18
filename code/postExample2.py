@@ -1,28 +1,25 @@
 import requests
-from pprint import pprint
-_print = print
-print = pprint
 
-url = 'http://127.0.0.1:3001/users'
+url = 'https://64dd7529825d19d9bfb12c36.mockapi.io/order'
 
 user_data = {
-    "nome": "Luiz Otávio",
-    "password": "123456",
-    "email": "luiz@email.com"
+    "name": "Pedro Otávio Alcantra",
+    "order": "4554",
+    "email": "pedro@email.com"
 }
 
 response = requests.post(url=url, json=user_data)
 
 if response.status_code >= 200 and response.status_code <= 299:
-    # Sucesso
+  
     print(response.status_code)
     print(response.reason)
-    # print(response.text)
+  
     print(response.json())
-    # print('Bytes', response.content)
+   
 else:
-    # Erros
+    
     print(response.status_code)
     print(response.reason)
     print(response.text)
-    # print('Bytes', response.content)
+   
